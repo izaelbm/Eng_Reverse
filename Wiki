@@ -1,0 +1,19 @@
+#===========================
+# Analise Linux Utilizando o GDB
+#===========================
+
+gdb -q ./binario #abrindo o gdb
+
+info function #Verificar Funcoes
+
+disas function #Disassembly Function
+
+set disassembly-flavor intel #Mudar para assembly Intel
+
+b * 0x0000123f #breakpoint
+
+run < file.txt #executar pegando bytes de arquivo
+
+run < < python 'print("A" * 100)' #executar gerando bytes em python
+
+#=================================
