@@ -14,6 +14,6 @@ b * 0x0000123f #breakpoint
 
 run < file.txt #executar pegando bytes de arquivo
 
-run < < python 'print("A" * 100)' #executar gerando bytes em python
+run < <(python 'print("A" * 100))' #executar gerando bytes em python
 
 #=================================
