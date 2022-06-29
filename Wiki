@@ -17,3 +17,8 @@ run < file.txt #executar pegando bytes de arquivo
 run < <(python -c 'print( "A" * 150)') #executar gerando bytes em python
 
 #=================================
+#Identificar badchars
+#=================================
+/usr/bin/msf-pattern_create -l 700
+
+/usr/bin/msf-pattern_offset -l 700 -q 35724134
